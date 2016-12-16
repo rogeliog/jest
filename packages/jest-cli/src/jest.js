@@ -51,9 +51,9 @@ const getHasteMapAndHasteContext = (config, options) => {
       throw error;
     },
   )
-  .then(hasteMap => ({
+  .then(hasteContext => ({
     config,
-    hasteMap,
+    hasteContext,
     jestHasteMap,
   }));
 };
@@ -78,7 +78,7 @@ const runCLI = (
       resetCache: !config.cache,
       watch: config.watch,
     }))
-    .then(({config, jestHasteMap, hasteMap}) => {
+    .then(({config, jestHasteMap, hasteContext}) => {
       if (argv.debug) {
         /* $FlowFixMe */
         const testFramework = require(config.testRunner);
@@ -87,11 +87,11 @@ const runCLI = (
         pipe.write('config = ' + JSON.stringify(config, null, '  ') + '\n');
       }
       if (argv.watch || argv.watchAll) {
-        return watch(config, pipe, argv, jestHasteMap, hasteMap);
+        return watch(config, pipe, argv, jestHasteMap, hasteContext);
       } else {
         preRunMessage.print(pipe);
         const testWatcher = new TestWatcher({isWatchMode: false});
-        return runJest(hasteMap, config, argv, pipe, testWatcher,
+        return runJest(hasteContext, config, argv, pipe, testWatcher,
           onComplete);
       }
     })
