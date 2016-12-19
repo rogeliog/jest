@@ -21,7 +21,7 @@ const TestRunner = require('./TestRunner');
 
 const {Console} = require('jest-util');
 const chalk = require('chalk');
-const formatTestResults = require('./lib/formatTestResults');
+const {formatTestResults} = require('jest-util');
 const path = require('path');
 const getMaxWorkers = require('./lib/getMaxWorkers');
 const setWatchMode = require('./lib/setWatchMode');
@@ -106,8 +106,7 @@ const runJest = (
       .then(runResults => {
         if (config.testResultsProcessor) {
           /* $FlowFixMe */
-          const processor = require(config.testResultsProcessor);
-          processor(runResults);
+          runResults = require(config.testResultsProcessor)(runResults);
         }
         if (argv.json) {
           if (argv.outputFile) {
@@ -115,7 +114,7 @@ const runJest = (
 
             fs.writeFileSync(
               outputFile,
-              JSON.stringify(formatTestResults(runResults, config)),
+              JSON.stringify(formatTestResults(runResults)),
             );
             process.stdout.write(
               `Test results written to: ` +
@@ -123,7 +122,7 @@ const runJest = (
             );
           } else {
             process.stdout.write(
-              JSON.stringify(formatTestResults(runResults, config)),
+              JSON.stringify(formatTestResults(runResults)),
             );
           }
         }
