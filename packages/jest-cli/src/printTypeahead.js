@@ -50,6 +50,8 @@ const printTypeahead = (
         `\n  ${chalk.dim(`\u203A and ${more} more ${pluralizeFile(more)}`)}`,
       );
     }
+  } else {
+    pipe.write(`\n\n ${chalk.italic.yellow('Start typing to filter by a filename regex pattern.')}`);
   }
 
   pipe.write(ansiEscapes.cursorRestorePosition);

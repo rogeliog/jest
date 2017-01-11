@@ -64,11 +64,10 @@ const watch = (
 
     pipe.write(ansiEscapes.cursorHide);
     pipe.write(ansiEscapes.clearScreen);
-    pipe.write(usage(argv, hasSnapshotFailure));
-    pipe.write('\n');
+    pipe.write(`\n${chalk.bold('Pattern Mode Usage')}\n`);
+    pipe.write(chalk.dim(' \u203A Press ') + 'ESC' + chalk.dim(' exit pattern mode.') + '\n\n');
     printTypeahead(config, pipe, currentPattern, paths);
     pipe.write(ansiEscapes.cursorShow);
-
   };
 
   const startRun = (overrideConfig: Object = {}) => {
@@ -121,8 +120,10 @@ const watch = (
           break;
         case KEYS.ESCAPE:
           isEnteringPattern = false;
-          pipe.write(ansiEscapes.eraseDown);
-          pipe.write(ansiEscapes.eraseLines(2));
+          pipe.write(ansiEscapes.cursorHide);
+          pipe.write(ansiEscapes.clearScreen);
+          pipe.write(usage(argv, hasSnapshotFailure));
+          pipe.write(ansiEscapes.cursorShow);
           currentPattern = argv._[0];
           break;
         case KEYS.ARROW_DOWN:
@@ -172,6 +173,7 @@ const watch = (
       case KEYS.P:
         isEnteringPattern = true;
         currentPattern = '';
+        pipe.write(ansiEscapes.eraseScreen);
         writeCurrentPattern();
         break;
       case KEYS.QUESTION_MARK:

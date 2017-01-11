@@ -2,12 +2,9 @@ exports[`Watch mode flows Pressing "P" enters pattern mode 1`] = `
 "[MOCK - cursorHide]
 [MOCK - clearScreen]
 
-Watch Usage
- › Press o to only run tests related to changed files.
- › Press p to filter by a filename regex pattern.
- › Press q to quit watch mode.
- › Press Enter to trigger a test run.
+Pattern Mode Usage
 
+ › Press ESC exit pattern mode.
 
 
  pattern › p
@@ -45,12 +42,9 @@ exports[`Watch mode flows Pressing "P" enters pattern mode 2`] = `
 "[MOCK - cursorHide]
 [MOCK - clearScreen]
 
-Watch Usage
- › Press o to only run tests related to changed files.
- › Press p to filter by a filename regex pattern.
- › Press q to quit watch mode.
- › Press Enter to trigger a test run.
+Pattern Mode Usage
 
+ › Press ESC exit pattern mode.
 
 
  pattern › p.
@@ -88,12 +82,9 @@ exports[`Watch mode flows Pressing "P" enters pattern mode 3`] = `
 "[MOCK - cursorHide]
 [MOCK - clearScreen]
 
-Watch Usage
- › Press o to only run tests related to changed files.
- › Press p to filter by a filename regex pattern.
- › Press q to quit watch mode.
- › Press Enter to trigger a test run.
+Pattern Mode Usage
 
+ › Press ESC exit pattern mode.
 
 
  pattern › p.*
@@ -131,12 +122,9 @@ exports[`Watch mode flows Pressing "P" enters pattern mode 4`] = `
 "[MOCK - cursorHide]
 [MOCK - clearScreen]
 
-Watch Usage
- › Press o to only run tests related to changed files.
- › Press p to filter by a filename regex pattern.
- › Press q to quit watch mode.
- › Press Enter to trigger a test run.
+Pattern Mode Usage
 
+ › Press ESC exit pattern mode.
 
 
  pattern › p.*1
@@ -158,12 +146,9 @@ exports[`Watch mode flows Pressing "P" enters pattern mode 5`] = `
 "[MOCK - cursorHide]
 [MOCK - clearScreen]
 
-Watch Usage
- › Press o to only run tests related to changed files.
- › Press p to filter by a filename regex pattern.
- › Press q to quit watch mode.
- › Press Enter to trigger a test run.
+Pattern Mode Usage
 
+ › Press ESC exit pattern mode.
 
 
  pattern › p.*10
@@ -181,12 +166,9 @@ exports[`Watch mode flows Pressing "P" enters pattern mode 6`] = `
 "[MOCK - cursorHide]
 [MOCK - clearScreen]
 
-Watch Usage
- › Press o to only run tests related to changed files.
- › Press p to filter by a filename regex pattern.
- › Press q to quit watch mode.
- › Press Enter to trigger a test run.
+Pattern Mode Usage
 
+ › Press ESC exit pattern mode.
 
 
  pattern › p.*1
@@ -208,12 +190,9 @@ exports[`Watch mode flows Pressing "P" enters pattern mode 7`] = `
 "[MOCK - cursorHide]
 [MOCK - clearScreen]
 
-Watch Usage
- › Press o to only run tests related to changed files.
- › Press p to filter by a filename regex pattern.
- › Press q to quit watch mode.
- › Press Enter to trigger a test run.
+Pattern Mode Usage
 
+ › Press ESC exit pattern mode.
 
 
  pattern › p.*
@@ -251,12 +230,9 @@ exports[`Watch mode flows Pressing "P" enters pattern mode 8`] = `
 "[MOCK - cursorHide]
 [MOCK - clearScreen]
 
-Watch Usage
- › Press o to only run tests related to changed files.
- › Press p to filter by a filename regex pattern.
- › Press q to quit watch mode.
- › Press Enter to trigger a test run.
+Pattern Mode Usage
 
+ › Press ESC exit pattern mode.
 
 
  pattern › p.*3
