@@ -54,6 +54,22 @@ The core team will be monitoring for pull requests. When we get one, we'll run s
    ```
 6. If you haven't already, complete the CLA.
 
+### Trying your changes in your existing project
+
+If you want to try your changes in your existing project, you may `npm link` each package that you have modified.
+
+```sh
+cd your_project
+
+# Link each package that you have modified (for example jest-cli and jest-runtime)
+
+npm link ~/path_to_your_jest_clone/packages/jest-cli
+npm link ~/path_to_your_jest_clone/packages/jest-runtime
+```
+
+Every time you run modify a file in the Jest folder while `npm run watch` is running, the updated versions will appear in your project's `node_modules`. You can then rebuild your project to try your changes.
+
+
 ### Contributor License Agreement (CLA)
 
 In order to accept your pull request, we need you to submit a CLA. You only need to do this once, so if you've done this for another Facebook open source project, you're good to go. If you are submitting a pull request for the first time, just let us know that you have completed the CLA and we can cross-check with your GitHub username.
