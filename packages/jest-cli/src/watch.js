@@ -13,6 +13,7 @@ import type {HasteContext} from 'types/HasteMap';
 import type {Config} from 'types/Config';
 
 const ansiEscapes = require('ansi-escapes');
+const {clearLine} = require('jest-util');
 const chalk = require('chalk');
 const createHasteContext = require('./lib/createHasteContext');
 const HasteMap = require('jest-haste-map');
@@ -61,11 +62,8 @@ const watch = (
     const paths = regex ?
       searchSource.findMatchingTests(currentPattern).paths : [];
 
-    pipe.write(ansiEscapes.cursorHide);
-    pipe.write(ansiEscapes.clearScreen);
-    pipe.write(patternUsage());
+    clearLine(pipe);
     printTypeahead(config, pipe, currentPattern, paths);
-    pipe.write(ansiEscapes.cursorShow);
   };
 
   const startRun = (overrideConfig: Object = {}) => {
@@ -171,6 +169,8 @@ const watch = (
       case KEYS.P:
         isEnteringPattern = true;
         currentPattern = '';
+        pipe.write(ansiEscapes.clearScreen);
+        pipe.write(patternUsage());
         writeCurrentPattern();
         break;
       case KEYS.QUESTION_MARK:
