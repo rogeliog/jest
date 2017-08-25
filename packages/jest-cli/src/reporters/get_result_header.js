@@ -13,12 +13,23 @@ import type {TestResult} from 'types/TestResult';
 
 import chalk from 'chalk';
 import {formatTestPath, printDisplayName} from './utils';
+import isCI from 'is-ci';
+
+const isInteractive = process.stdin.isTTY && !isCI;
 
 const LONG_TEST_COLOR = chalk.reset.bold.bgRed;
 // Explicitly reset for these messages since they can get written out in the
 // middle of error logging
-const FAIL = chalk.reset.inverse.bold.red(' FAIL ');
-const PASS = chalk.reset.inverse.bold.green(' PASS ');
+const FAIL_TEXT = 'FAIL';
+const PASS_TEXT = 'PASS';
+
+const FAIL = isInteractive
+  ? chalk.reset.inverse.bold.red(` ${FAIL_TEXT} `)
+  : FAIL_TEXT;
+
+const PASS = isInteractive
+  ? chalk.reset.inverse.bold.green(` ${PASS_TEXT} `)
+  : PASS_TEXT;
 
 module.exports = (
   result: TestResult,
